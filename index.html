@@ -5,14 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f8f5ed">
-<title>WhisperNovel | Stories Beyond Imagination</title>
+<title>WhisperNovel | Discover Your Next World</title>
 
 <style>
 :root {
   --ivory: #f8f5ed;
   --paper: #fffdf8;
   --gold: #b18a43;
-  --dark: #28251f;
+  --dark: #29261f;
   --muted: #777268;
   --line: #e8e0d1;
 }
@@ -34,11 +34,11 @@ body {
 button, input { font: inherit; }
 
 header {
-  height: 76px;
+  min-height: 76px;
   padding: 0 7%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   position: sticky;
@@ -49,41 +49,52 @@ header {
 .logo {
   font-size: 27px;
   font-weight: bold;
-  color: var(--dark);
 }
 
 .logo span { color: var(--gold); }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 25px;
 }
 
 nav a {
   text-decoration: none;
   color: var(--dark);
-  font-family: Arial, sans-serif;
-  font-size: 13px;
+  font: 13px Arial, sans-serif;
 }
 
 nav a:hover { color: var(--gold); }
 
+.publish-link {
+  padding: 11px 17px;
+  border-radius: 4px;
+  background: var(--gold);
+  color: white;
+}
+
+.publish-link:hover {
+  color: white;
+  background: #92703b;
+}
+
 .menu-btn {
   display: none;
-  border: 0;
+  border: none;
   background: transparent;
   font-size: 25px;
 }
 
 .hero {
-  padding: 65px 7%;
-  background:
-    linear-gradient(90deg, rgba(31,27,21,.91), rgba(31,27,21,.55)),
-    linear-gradient(135deg, #66543b, #b18a43, #29251e);
-  color: white;
-  min-height: 340px;
+  min-height: 390px;
+  padding: 70px 7%;
   display: flex;
   align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(35,30,23,.94), rgba(35,30,23,.48)),
+    linear-gradient(135deg, #4a3d2d, #b18a43, #29251f);
 }
 
 .hero-content { max-width: 650px; }
@@ -93,283 +104,212 @@ nav a:hover { color: var(--gold); }
   font: 12px Arial, sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: clamp(38px, 7vw, 64px);
+  font-size: clamp(40px, 7vw, 67px);
   line-height: 1.08;
-  margin-bottom: 17px;
+  margin-bottom: 18px;
 }
 
 .hero p {
-  font: 15px/1.8 Arial, sans-serif;
-  color: #eee7da;
   max-width: 500px;
+  color: #eee7da;
+  font: 15px/1.9 Arial, sans-serif;
 }
 
 .hero-btn {
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 27px;
+  padding: 14px 25px;
   background: var(--gold);
   color: white;
-  padding: 14px 25px;
   border-radius: 4px;
   text-decoration: none;
   font: bold 13px Arial, sans-serif;
 }
 
-.hero-btn:hover { background: #947039; }
+.hero-btn:hover { background: #92703b; }
 
-main { padding: 45px 7%; }
+main { padding: 48px 7%; }
 
-.search-area {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 38px;
+.search-section { margin-bottom: 48px; }
+
+.search-section h2 {
+  font-size: 27px;
+  margin-bottom: 17px;
 }
 
-.search-area input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid var(--line);
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: 5px;
+  padding: 0 16px;
+}
+
+.search-box span {
+  color: var(--gold);
+  font-size: 21px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 17px 0;
+  background: transparent;
+  border: none;
   outline: none;
   font: 14px Arial, sans-serif;
+  color: var(--dark);
 }
 
-.search-area input:focus {
-  border-color: var(--gold);
-}
+.section-heading { margin-bottom: 23px; }
 
-.section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-  gap: 10px;
-}
-
-.section-heading h2 { font-size: 27px; }
+.section-heading h2 { font-size: 29px; }
 
 .section-heading p {
-  font: 12px Arial, sans-serif;
+  margin-top: 7px;
   color: var(--muted);
-  margin-top: 6px;
+  font: 13px Arial, sans-serif;
 }
 
-.genres {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 20px 0 30px;
-}
-
-.genre-btn {
-  border: 1px solid var(--line);
-  background: var(--paper);
-  padding: 9px 17px;
-  border-radius: 30px;
-  cursor: pointer;
-  color: var(--dark);
-  font: 12px Arial, sans-serif;
-}
-
-.genre-btn.active,
-.genre-btn:hover {
-  background: var(--gold);
-  color: white;
-  border-color: var(--gold);
-}
-
-.book-grid {
+.genre-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
-  gap: 23px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
 }
 
-.book-card {
+.genre-card {
+  min-height: 105px;
+  padding: 20px;
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 7px;
-  overflow: hidden;
-  transition: .2s;
-}
-
-.book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
-}
-
-.book-cover {
-  height: 205px;
+  border-radius: 6px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 18px;
-  text-align: center;
-  color: white;
-  font-size: 23px;
-  line-height: 1.3;
-  background: linear-gradient(145deg, #463b2c, #a17c43);
-}
-
-.cover-2 { background: linear-gradient(145deg, #283c42, #8a9b88); }
-.cover-3 { background: linear-gradient(145deg, #513a39, #ad7770); }
-.cover-4 { background: linear-gradient(145deg, #30334b, #777a9e); }
-.cover-5 { background: linear-gradient(145deg, #56452c, #b49a65); }
-.cover-6 { background: linear-gradient(145deg, #343c32, #7b916b); }
-
-.book-info { padding: 15px; }
-
-.book-info h3 {
-  font-size: 17px;
-  margin-bottom: 7px;
-}
-
-.book-info p {
-  font: 12px Arial, sans-serif;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.read-btn {
-  width: 100%;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  background: transparent;
-  padding: 10px;
+  gap: 9px;
   cursor: pointer;
-  border-radius: 3px;
-  font: bold 12px Arial, sans-serif;
+  transition: .2s;
+  text-align: left;
+  color: var(--dark);
 }
 
-.read-btn:hover {
-  background: var(--gold);
-  color: white;
+.genre-card:hover,
+.genre-card.active {
+  border-color: var(--gold);
+  background: #f2eadb;
+  transform: translateY(-3px);
 }
 
-.empty {
-  grid-column: 1/-1;
-  text-align: center;
-  padding: 40px 10px;
+.genre-card strong { font-size: 18px; }
+
+.genre-card small {
   color: var(--muted);
-  font: 14px Arial, sans-serif;
+  font: 11px Arial, sans-serif;
+}
+
+.library-section { margin-top: 58px; }
+
+.library-empty {
+  min-height: 210px;
+  background: var(--paper);
+  border: 1px dashed #cbb991;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.empty-symbol {
+  font-size: 36px;
+  color: var(--gold);
+  margin-bottom: 13px;
+}
+
+.library-empty h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.library-empty p {
+  max-width: 400px;
+  color: var(--muted);
+  font: 13px/1.8 Arial, sans-serif;
 }
 
 .about {
   margin-top: 65px;
-  padding: 38px;
+  padding: 40px;
   background: #eee7d9;
-  border-radius: 8px;
+  border-radius: 7px;
 }
 
 .about h2 {
-  font-size: 29px;
-  margin-bottom: 14px;
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
 .about p {
-  font: 14px/1.9 Arial, sans-serif;
+  max-width: 700px;
   color: #655f54;
-  max-width: 720px;
+  font: 14px/1.9 Arial, sans-serif;
 }
 
 footer {
   background: #29261f;
   color: #e9e1d3;
-  padding: 35px 7%;
+  padding: 40px 7%;
   text-align: center;
 }
 
 footer h2 { margin-bottom: 12px; }
 
 footer p {
-  font: 12px/1.8 Arial, sans-serif;
   color: #c5bdaf;
+  font: 12px/1.9 Arial, sans-serif;
 }
 
 footer .credit {
-  margin-top: 18px;
   color: #d8b779;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.68);
-  z-index: 30;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal.show { display: flex; }
-
-.modal-content {
-  width: 100%;
-  max-width: 480px;
-  max-height: 85vh;
-  overflow-y: auto;
-  background: var(--paper);
-  border-radius: 8px;
-  padding: 28px;
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  right: 17px;
-  top: 13px;
-  border: none;
-  background: none;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.modal-content h2 {
-  margin: 18px 0 10px;
-  font-size: 28px;
-}
-
-.modal-content p {
-  font: 14px/1.8 Arial, sans-serif;
-  color: var(--muted);
-  margin-bottom: 15px;
-}
-
-.modal-label {
-  color: var(--gold);
-  font: 11px Arial, sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  margin-top: 17px;
 }
 
 @media(max-width:650px) {
   header { padding: 0 5%; }
+
   .menu-btn { display: block; }
+
   nav {
     display: none;
     position: absolute;
     top: 75px;
     left: 0;
     width: 100%;
-    padding: 22px;
+    padding: 22px 6%;
     background: var(--paper);
     flex-direction: column;
+    align-items: flex-start;
     border-bottom: 1px solid var(--line);
   }
+
   nav.open { display: flex; }
-  main { padding: 35px 5%; }
-  .hero { padding: 55px 6%; }
-  .book-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px; }
-  .book-cover { height: 175px; font-size: 19px; }
-  .book-info { padding: 11px; }
-  .book-info h3 { font-size: 15px; }
-  .section-heading h2 { font-size: 23px; }
-  .about { padding: 25px; }
+
+  main { padding: 38px 5%; }
+
+  .hero { padding: 60px 6%; }
+
+  .genre-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .about { padding: 27px; }
 }
 </style>
 </head>
@@ -379,253 +319,179 @@ footer .credit {
 <header>
   <div class="logo">Whisper<span>Novel</span>.</div>
 
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  <button class="menu-btn" id="menuBtn"
+          aria-label="Toggle navigation">☰</button>
 
-  <nav id="nav">
+  <nav id="navigation">
     <a href="#home">Home</a>
-    <a href="#library">Library</a>
     <a href="#genres">Genres</a>
+    <a href="#library">Library</a>
     <a href="#about">About</a>
+    <a href="publish.html" class="publish-link">Publish a Novel</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="eyebrow">Welcome to WhisperNovel</div>
-    <h1>Every story has a world of its own.</h1>
+    <div class="eyebrow">A Home for Storytellers</div>
+
+    <h1>Every story deserves a world.</h1>
+
     <p>
-      Discover unforgettable stories, explore different worlds
-      and find your next favourite novel.
+      Welcome to WhisperNovel. Discover new worlds,
+      explore different genres and experience the
+      beauty of storytelling.
     </p>
+
     <a href="#library" class="hero-btn">Explore Library →</a>
   </div>
 </section>
 
 <main>
-  <section class="search-area">
-    <input
-      type="search"
-      id="searchInput"
-      placeholder="Search novels, authors or genres..."
-      aria-label="Search novels"
-    >
+
+  <section class="search-section">
+    <h2>Find Your Next Story</h2>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search for novels, authors or genres..."
+        aria-label="Search novels"
+      >
+    </div>
   </section>
 
-  <section id="library">
+  <section id="genres">
     <div class="section-heading">
-      <div>
-        <h2>Explore Our Library</h2>
-        <p>Stories waiting to be discovered.</p>
-      </div>
+      <h2>Explore Genres</h2>
+      <p>Choose the kind of world you want to enter.</p>
     </div>
 
-    <div class="genres" id="genres">
-      <button class="genre-btn active" data-genre="All">All Stories</button>
-      <button class="genre-btn" data-genre="Crime">Crime</button>
-      <button class="genre-btn" data-genre="Suspense">Suspense</button>
-      <button class="genre-btn" data-genre="Romance">Romance</button>
-      <button class="genre-btn" data-genre="Fantasy">Fantasy</button>
-      <button class="genre-btn" data-genre="Adventure">Adventure</button>
+    <div class="genre-grid">
+
+      <button class="genre-card" data-genre="Romance">
+        <strong>Romance</strong>
+        <small>Love and relationships</small>
+      </button>
+
+      <button class="genre-card" data-genre="Crime">
+        <strong>Crime</strong>
+        <small>Mysteries and investigations</small>
+      </button>
+
+      <button class="genre-card" data-genre="Suspense">
+        <strong>Suspense</strong>
+        <small>Secrets and unexpected turns</small>
+      </button>
+
+      <button class="genre-card" data-genre="Fantasy">
+        <strong>Fantasy</strong>
+        <small>Magic and imagination</small>
+      </button>
+
+      <button class="genre-card" data-genre="Adventure">
+        <strong>Adventure</strong>
+        <small>Journeys and discovery</small>
+      </button>
+
+      <button class="genre-card" data-genre="Drama">
+        <strong>Drama</strong>
+        <small>Life and emotions</small>
+      </button>
+
+      <button class="genre-card" data-genre="Horror">
+        <strong>Horror</strong>
+        <small>Dark fictional worlds</small>
+      </button>
+
+      <button class="genre-card" data-genre="Other">
+        <strong>More Genres</strong>
+        <small>Explore other categories</small>
+      </button>
+
+    </div>
+  </section>
+
+  <section class="library-section" id="library">
+    <div class="section-heading">
+      <h2>Our Library</h2>
+      <p>Discover stories published on WhisperNovel.</p>
     </div>
 
-    <div class="book-grid" id="bookGrid"></div>
+    <div class="library-empty">
+      <div class="empty-symbol">✦</div>
+      <h3>Your next favourite story awaits.</h3>
+      <p>
+        Our library is waiting for its first published novels.
+        New stories will appear here when authors publish them.
+      </p>
+    </div>
   </section>
 
   <section class="about" id="about">
-    <h2>More Than Just Stories.</h2>
+    <h2>About WhisperNovel</h2>
+
     <p>
-      WhisperNovel is a home for imagination, creativity and
-      storytelling. Discover different genres, meet interesting
-      characters and enjoy stories from different writers.
-      Every page opens another world.
+      WhisperNovel is a reading and storytelling platform
+      created for readers and writers. Our vision is to
+      provide a welcoming space where creativity can grow,
+      writers can share their work and readers can discover
+      stories across different genres.
     </p>
   </section>
+
 </main>
 
 <footer>
   <h2>WhisperNovel.</h2>
-  <p>Stories Beyond Imagination.</p>
+
+  <p>A world of stories. A home for imagination.</p>
   <p>Read. Imagine. Discover.</p>
+
   <p class="credit">
     99% design and coded by TIJANI ALIYU
     (HexWhisper/CyberCodeClown).
   </p>
+
   <p>© <span id="year"></span> WhisperNovel. All rights reserved.</p>
 </footer>
 
-<div class="modal" id="storyModal" role="dialog"
-     aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal-content">
-    <button class="close-btn" id="closeModal"
-            aria-label="Close">×</button>
-    <div class="modal-label" id="modalGenre"></div>
-    <h2 id="modalTitle"></h2>
-    <p id="modalAuthor"></p>
-    <p id="modalDescription"></p>
-    <p><strong>Coming soon:</strong> Full chapters will be available
-      as the WhisperNovel reading system is developed.</p>
-  </div>
-</div>
-
 <script>
-const novels = [
-  {
-    title: "The Silent Witness",
-    author: "WhisperNovel",
-    genre: "Crime",
-    cover: "cover-1",
-    description: "A mysterious crime shakes a quiet neighbourhood. One witness knows the truth, but revealing it could change everything."
-  },
-  {
-    title: "Shadows After Midnight",
-    author: "WhisperNovel",
-    genre: "Suspense",
-    cover: "cover-2",
-    description: "A strange message arrives after midnight. As secrets begin to surface, nothing is as simple as it seems."
-  },
-  {
-    title: "Letters We Never Sent",
-    author: "WhisperNovel",
-    genre: "Romance",
-    cover: "cover-3",
-    description: "Two people, unfinished conversations and a collection of letters that could change their future."
-  },
-  {
-    title: "The Forgotten Kingdom",
-    author: "WhisperNovel",
-    genre: "Fantasy",
-    cover: "cover-4",
-    description: "An unexpected discovery opens the door to a forgotten kingdom filled with ancient mysteries."
-  },
-  {
-    title: "Beyond the Last Road",
-    author: "WhisperNovel",
-    genre: "Adventure",
-    cover: "cover-5",
-    description: "A journey into the unknown tests courage, friendship and the meaning of home."
-  },
-  {
-    title: "The Final Secret",
-    author: "WhisperNovel",
-    genre: "Crime",
-    cover: "cover-6",
-    description: "A case thought to be closed takes a surprising turn when a missing clue finally appears."
-  }
-];
+const menuBtn = document.getElementById("menuBtn");
+const navigation = document.getElementById("navigation");
 
-const grid = document.getElementById("bookGrid");
-const searchInput = document.getElementById("searchInput");
-const genreButtons = document.querySelectorAll(".genre-btn");
-
-let selectedGenre = "All";
-
-function renderBooks() {
-  const search = searchInput.value.toLowerCase().trim();
-
-  const filtered = novels.filter(book => {
-    const matchesGenre =
-      selectedGenre === "All" || book.genre === selectedGenre;
-
-    const matchesSearch =
-      book.title.toLowerCase().includes(search) ||
-      book.author.toLowerCase().includes(search) ||
-      book.genre.toLowerCase().includes(search);
-
-    return matchesGenre && matchesSearch;
-  });
-
-  grid.innerHTML = "";
-
-  if (filtered.length === 0) {
-    grid.innerHTML =
-      '<div class="empty">No stories found. Try another search.</div>';
-    return;
-  }
-
-  filtered.forEach(book => {
-    const card = document.createElement("article");
-    card.className = "book-card";
-
-    const cover = document.createElement("div");
-    cover.className = "book-cover " + book.cover;
-    cover.textContent = book.title;
-
-    const info = document.createElement("div");
-    info.className = "book-info";
-
-    const title = document.createElement("h3");
-    title.textContent = book.title;
-
-    const details = document.createElement("p");
-    details.textContent = book.genre + " • " + book.author;
-
-    const button = document.createElement("button");
-    button.className = "read-btn";
-    button.textContent = "Read Story";
-    button.addEventListener("click", () => openStory(book));
-
-    info.append(title, details, button);
-    card.append(cover, info);
-    grid.appendChild(card);
-  });
-}
-
-function openStory(book) {
-  document.getElementById("modalTitle").textContent = book.title;
-  document.getElementById("modalGenre").textContent = book.genre;
-  document.getElementById("modalAuthor").textContent =
-    "Written by " + book.author;
-  document.getElementById("modalDescription").textContent =
-    book.description;
-
-  document.getElementById("storyModal").classList.add("show");
-}
-
-function closeStory() {
-  document.getElementById("storyModal").classList.remove("show");
-}
-
-searchInput.addEventListener("input", renderBooks);
-
-genreButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    selectedGenre = button.dataset.genre;
-
-    genreButtons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-
-    renderBooks();
-  });
+menuBtn.addEventListener("click", () => {
+  navigation.classList.toggle("open");
 });
 
-document.getElementById("closeModal")
-  .addEventListener("click", closeStory);
-
-document.getElementById("storyModal")
-  .addEventListener("click", event => {
-    if (event.target.id === "storyModal") closeStory();
-  });
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeStory();
-});
-
-document.getElementById("menuBtn").addEventListener("click", () => {
-  document.getElementById("nav").classList.toggle("open");
-});
-
-document.querySelectorAll("#nav a").forEach(link => {
+navigation.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    document.getElementById("nav").classList.remove("open");
+    navigation.classList.remove("open");
   });
 });
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-renderBooks();
+const genreCards = document.querySelectorAll(".genre-card");
+
+genreCards.forEach(card => {
+  card.addEventListener("click", () => {
+    genreCards.forEach(item => item.classList.remove("active"));
+    card.classList.add("active");
+
+    const genre = card.dataset.genre;
+
+    document.getElementById("searchInput").value = genre;
+
+    document.getElementById("library").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
 </script>
 
 </body>
-  </html>
-  
+</html>
