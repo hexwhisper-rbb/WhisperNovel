@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f5ed">
+<title>Publish Your Novel | WhisperNovel</title>
+
+<style>
+:root {
+  --ivory: #f8f5ed;
+  --paper: #fffdf8;
+  --gold: #b18a43;
+  --dark: #29261f;
+  --muted: #777268;
+  --line: #e8e0d1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--dark);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.logo span { color: var(--gold); }
+
+header a.home {
+  color: var(--gold);
+  text-decoration: none;
+  font: 13px Arial, sans-serif;
+}
+
+.hero {
+  padding: 45px 7% 30px;
+}
+
+.eyebrow {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 6vw, 48px);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  color: var(--muted);
+  font: 14px/1.8 Arial, sans-serif;
+  max-width: 600px;
+}
+
+main {
+  max-width: 900px;
+  margin: 10px auto 60px;
+  padding: 0 20px;
+}
+
+.form-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 30px;
+  margin-bottom: 23px;
+}
+
+.form-card h2 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.form-card .description {
+  font: 12px/1.7 Arial, sans-serif;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.field {
+  margin-bottom: 21px;
+}
+
+label {
+  display: block;
+  font: bold 13px Arial, sans-serif;
+  margin-bottom: 9px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: white;
+  color: var(--dark);
+  outline: none;
+  font: 14px Arial, sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+small.hint {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font: 11px Arial, sans-serif;
+}
+
+.cover-area {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cover-preview {
+  width: 135px;
+  height: 175px;
+  border: 1px dashed #cbb991;
+  border-radius: 5px;
+  background: #f2eadb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--gold);
+  text-align: center;
+  padding: 10px;
+  font: 12px/1.5 Arial, sans-serif;
+}
+
+.cover-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-upload {
+  flex: 1;
+  min-width: 180px;
+}
+
+.chapter {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 17px;
+  background: #fffefa;
+}
+
+.chapter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.chapter-top h3 { font-size: 17px; }
+
+.remove-chapter {
+  border: none;
+  background: transparent;
+  color: #a34b40;
+  cursor: pointer;
+  font: 12px Arial, sans-serif;
+}
+
+.chapter textarea {
+  min-height: 210px;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font: bold 13px Arial, sans-serif;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: white;
+}
+
+.btn-gold:hover { background: #92703b; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.btn-outline:hover {
+  background: #f4eddf;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.notice {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #f2eadb;
+  color: #65502c;
+  font: 13px/1.7 Arial, sans-serif;
+}
+
+.notice.show { display: block; }
+
+footer {
+  background: var(--dark);
+  color: #e9e1d3;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+footer p {
+  font: 12px/1.8 Arial, sans-serif;
+  color: #c5bdaf;
+}
+
+@media(max-width:600px) {
+  header { padding: 18px 5%; }
+  .hero { padding: 38px 5% 25px; }
+  main { padding: 0 12px; }
+  .form-card { padding: 20px 16px; }
+  .actions .btn { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    Whisper<span>Novel</span>.
+  </a>
+
+  <a href="index.html" class="home">← Back to Home</a>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Your imagination starts here</div>
+  <h1>Publish Your Novel</h1>
+  <p>
+    Every great story begins with an idea.
+    Give your imagination a home and prepare your
+    novel for the WhisperNovel library.
+  </p>
+</section>
+
+<main>
+
+  <form id="publishForm">
+
+    <section class="form-card">
+      <h2>01. Novel Information</h2>
+      <p class="description">
+        Tell readers about the novel you're creating.
+      </p>
+
+      <div class="field">
+        <label for="title">Novel Title *</label>
+        <input id="title" name="title" type="text"
+               placeholder="Enter your novel title" required>
+      </div>
+
+      <div class="field">
+        <label for="author">Author Name *</label>
+        <input id="author" name="author" type="text"
+               placeholder="Enter your author name" required>
+      </div>
+
+      <div class="field">
+        <label for="genre">Select Genre *</label>
+        <select id="genre" name="genre" required>
+          <option value="">Choose a genre</option>
+          <option>Romance</option>
+          <option>Crime</option>
+          <option>Suspense</option>
+          <option>Fantasy</option>
+          <option>Adventure</option>
+          <option>Drama</option>
+          <option>Horror</option>
+          <option>Action</option>
+          <option>Mystery</option>
+          <option>Comedy</option>
+          <option>Historical Fiction</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="synopsis">Novel Synopsis *</label>
+        <textarea id="synopsis" name="synopsis"
+          placeholder="Introduce your story without revealing everything..."
+          required></textarea>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <h2>02. Novel Cover</h2>
+      <p class="description">
+        Choose an image to represent your novel.
+      </p>
+
+      <div class="cover-area">
+        <div class="cover-preview" id="coverPreview">
+          Your cover preview
+        </div>
+
+        <div class="cover-upload">
+          <div class="field">
+            <label for="cover">Upload Cover Image</label>
+            <input id="cover" type="file"
+                   accept="image/*">
+            <small class="hint">
+              Select an image from your phone.
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <h2>03. Write Your Chapters</h2>
+      <p class="description">
+        Start writing your novel. You can add more chapters
+        whenever you need them.
+      </p>
+
+      <div id="chapters"></div>
+
+      <button type="button" class="btn btn-outline"
+              id="addChapter">
+        + Add Another Chapter
+      </button>
+    </section>
+
+    <section class="form-card">
+      <h2>04. Save Your Work</h2>
+      <p class="description">
+        Save a draft on this device while you work on your novel.
+      </p>
+
+      <div class="actions">
+        <button type="button" class="btn btn-outline"
+                id="saveDraft">
+          Save Draft
+        </button>
+
+        <button type="submit" class="btn btn-gold">
+          Submit Novel
+        </button>
+      </div>
+
+      <div class="notice" id="notice" role="status"></div>
+    </section>
+
+  </form>
+
+</main>
+
+<footer>
+  <p>WhisperNovel — A Home for Storytellers.</p>
+  <p>99% design and coded by TIJANI ALIYU
+     (HexWhisper/CyberCodeClown).</p>
+</footer>
+
+<script>
+const chaptersContainer = document.getElementById("chapters");
+const form = document.getElementById("publishForm");
+const notice = document.getElementById("notice");
+
+let chapterCount = 0;
+let coverData = "";
+
+function showNotice(message) {
+  notice.textContent = message;
+  notice.classList.add("show");
+}
+
+function addChapter(title = "", content = "") {
+  chapterCount++;
+
+  const chapter = document.createElement("div");
+  chapter.className = "chapter";
+
+  const top = document.createElement("div");
+  top.className = "chapter-top";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Chapter " + chapterCount;
+
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.className = "remove-chapter";
+  remove.textContent = "Remove";
+
+  remove.addEventListener("click", () => {
+    chapter.remove();
+    renumberChapters();
+  });
+
+  top.append(heading, remove);
+
+  const titleLabel = document.createElement("label");
+  titleLabel.textContent = "Chapter Title";
+
+  const titleInput = document.createElement("input");
+  titleInput.type = "text";
+  titleInput.className = "chapter-title";
+  titleInput.placeholder = "Enter chapter title";
+  titleInput.value = title;
+
+  const contentLabel = document.createElement("label");
+  contentLabel.textContent = "Chapter Content";
+  contentLabel.style.marginTop = "16px";
+
+  const contentInput = document.createElement("textarea");
+  contentInput.className = "chapter-content";
+  contentInput.placeholder = "Start writing your chapter here...";
+  contentInput.value = content;
+
+  chapter.append(
+    top,
+    titleLabel,
+    titleInput,
+    contentLabel,
+    contentInput
+  );
+
+  chaptersContainer.appendChild(chapter);
+}
+
+function renumberChapters() {
+  chapterCount = 0;
+
+  document.querySelectorAll(".chapter").forEach(chapter => {
+    chapterCount++;
+    chapter.querySelector("h3").textContent =
+      "Chapter " + chapterCount;
+  });
+}
+
+function collectData() {
+  const chapters = [];
+
+  document.querySelectorAll(".chapter").forEach(chapter => {
+    chapters.push({
+      title: chapter.querySelector(".chapter-title").value,
+      content: chapter.querySelector(".chapter-content").value
+    });
+  });
+
+  return {
+    title: document.getElementById("title").value,
+    author: document.getElementById("author").value,
+    genre: document.getElementById("genre").value,
+    synopsis: document.getElementById("synopsis").value,
+    cover: coverData,
+    chapters: chapters
+  };
+}
+
+function saveDraft() {
+  const data = collectData();
+
+  try {
+    localStorage.setItem(
+      "whisperNovelDraft",
+      JSON.stringify(data)
+    );
+
+    showNotice(
+      "Your draft has been saved in this browser on this device."
+    );
+  } catch (error) {
+    showNotice(
+      "The draft could not be saved. The cover image may be too large. Try a smaller image."
+    );
+  }
+}
+
+function loadDraft() {
+  try {
+    const saved = localStorage.getItem("whisperNovelDraft");
+
+    if (!saved) {
+      addChapter();
+      return;
+    }
+
+    const data = JSON.parse(saved);
+
+    document.getElementById("title").value = data.title || "";
+    document.getElementById("author").value = data.author || "";
+    document.getElementById("genre").value = data.genre || "";
+    document.getElementById("synopsis").value =
+      data.synopsis || "";
+
+    coverData = data.cover || "";
+
+    if (coverData) {
+      showCover(coverData);
+    }
+
+    chaptersContainer.innerHTML = "";
+    chapterCount = 0;
+
+    if (data.chapters && data.chapters.length) {
+      data.chapters.forEach(chapter => {
+        addChapter(chapter.title, chapter.content);
+      });
+    } else {
+      addChapter();
+    }
+
+  } catch (error) {
+    addChapter();
+    showNotice("A saved draft could not be loaded.");
+  }
+}
+
+function showCover(source) {
+  const preview = document.getElementById("coverPreview");
+  preview.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.src = source;
+  img.alt = "Novel cover preview";
+
+  preview.appendChild(img);
+}
+
+document.getElementById("cover").addEventListener("change", event => {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    showNotice("Please select a valid image.");
+    event.target.value = "";
+    return;
+  }
+
+  if (file.size > 2 * 1024 * 1024) {
+    showNotice("Please choose a cover image smaller than 2 MB.");
+    event.target.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    coverData = reader.result;
+    showCover(coverData);
+  };
+
+  reader.readAsDataURL(file);
+});
+
+document.getElementById("addChapter").addEventListener("click", () => {
+  addChapter();
+});
+
+document.getElementById("saveDraft").addEventListener("click", () => {
+  saveDraft();
+});
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const data = collectData();
+
+  if (!data.title || !data.author || !data.genre ||
+      !data.synopsis.trim()) {
+    showNotice("Please complete all required novel information.");
+    return;
+  }
+
+  if (!data.chapters.length ||
+      !data.chapters.some(chapter => chapter.content.trim())) {
+    showNotice("Please write at least one chapter before submitting.");
+    return;
+  }
+
+  try {
+    localStorage.setItem(
+      "whisperNovelDraft",
+      JSON.stringify(data)
+    );
+
+    showNotice(
+      "Your novel details have been saved as a local draft. Public publishing is not connected yet. Your novel has NOT been published to the library."
+    );
+  } catch (error) {
+    showNotice(
+      "Could not save your novel. Try using a smaller cover image."
+    );
+  }
+});
+
+loadDraft();
+</script>
+
+</body>
+        </html>
+        
